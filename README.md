@@ -1,116 +1,93 @@
-# The Cayman theme
+Welcome! This guide will walk you through installing Carbonara into your cluster. Currently, Carbonara supports Kubernetes. Carbonara leverages `kube-prometheus-stack` helm chart that includes all dependencies to get up and running and takes only a few minutes to install.
 
-[![.github/workflows/ci.yaml](https://github.com/pages-themes/cayman/actions/workflows/ci.yaml/badge.svg)](https://github.com/pages-themes/cayman/actions/workflows/ci.yaml) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-cayman.svg)](https://badge.fury.io/rb/jekyll-theme-cayman)
+Carbonara currently only supports AWS, GCP and Azure in US Regions. Support for EU coming soon! If you are running on-prem or colocation, we can accomodate your requests, please contact hello@trycarbona.com 
 
-*Cayman is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/cayman), or even [use it today](#usage).*
+**Note:** Carbonara's Methodology is loosely based on [Methodology | Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/docs/methodology/)
 
-![Thumbnail of Cayman](thumbnail.png)
+# Before you begin
+In order to deploy the Carbonara helm chart, ensure the following is completed:
+* Helm client ([version](https://helm.sh/docs/intro/install/) 3.0+) installed
+* Kubernetes client ([version](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) 1.21+) installed
+* Cluster created and configured with Kubernetes client
 
-## Usage
+# **Step 1:** *Install Carbonara Client*
+Carbonara client requires Python ([version](https://www.python.org/downloads/) 3.7+) to run. We recommend using a virtual python [environment](https://docs.python.org/3/library/venv.html) for using the tool for the best performance. The client is available on PyPi.
 
-To use the Cayman theme:
-
-1. Add the following to your site's `_config.yml`:
-
-    ```yml
-    remote_theme: pages-themes/cayman@v0.2.0
-    plugins:
-    - jekyll-remote-theme # add this line to the plugins list if you already have one
-    ```
-
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
-
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
-
-## Customizing
-
-### Configuration variables
-
-Cayman will respect the following variables, if set in your site's `_config.yml`:
-
-```yml
-title: [The title of your site]
-description: [A short description of your site's purpose]
+```
+❯ pip install cbrctl
 ```
 
-Additionally, you may choose to set the following optional variables:
+# **Step 2:** *Install Carbonara Agent*
+Configures your cluster with Carbonara agent. Running the following commands will also install Prometheus, Grafana, and kube-state-metrics in the namespace supplied. View install configuration options [here](https://github.com/TryCarbonara/CarbonaraResources).
 
-```yml
-show_downloads: ["true" or "false" (unquoted) to indicate whether to provide a download URL]
-google_analytics: [Your Google Analytics tracking ID]
+```
+# Initialize Carbonara context
+❯ cbrctl init --provider aws
+Context Initialized.
+
+# Carbonara Context is persisted at "~/.kube/carbonara_config" locally
 ```
 
-### Stylesheet
+```
+# Generate Carbonara auth token
+❯ cbrctl auth
+Please enter a valid name: <USER_NAME>
+Please enter a valid email: <USER_EMAIL>
 
-If you'd like to add your own custom styles:
+Please persist your auth token: <GENERATED_256_BIT_TOKEN>
+Context Updated.
 
-1. Create a file called `/assets/css/style.scss` in your site
-2. Add the following content to the top of the file, exactly as shown:
-    ```scss
-    ---
-    ---
+# Carbonara Token is also persisted at "~/.kube/carbonara_config" locally
+```
 
-    @import "{{ site.theme }}";
-    ```
-3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
+```
+# Configure target cluster with Carbonara packages
+❯ cbrctl config
+Enter target cluster: <CLUSTER_NAME>
 
-*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
+Cluster Configured Successfully. Happy Carbonara \m/
 
-### Layouts
+# By default, the token is fetched from the Carbonara config file. Otherwise it can also be passed using the `--token` flag.
+# Current cluster name is picked up from kubectl current context.
+```
+> Note: Currently Carbonara tooling supports monitoring all user's cluster with an exception of `carbonara-monitoring` and some system level `kube-*.` namespaces. We will soon be supporting dynamic lisitng of these namespaces to monitor.
+ 
+```
+# Validate status and make sure all pods are running
+❯ cbrctl status
+```
 
-If you'd like to change the theme's HTML layout:
+In case, any pod is not running, please refer to these [Troubleshooting](TROUBLESHOOT.md) steps.
+# **Step 3:** *Launch Visualization*
+The client exposes Grafana to external IP using Load-Balancer. The launcher will use the default browser to open the dashboard link. Secured Grafana uses username as `admin` and password as `prom-operator`.
 
-1. For some changes such as a custom `favicon`, you can add custom files in your local `_includes` folder. The files [provided with the theme](https://github.com/pages-themes/cayman/tree/master/_includes) provide a starting point and are included by the [original layout template](https://github.com/pages-themes/cayman/blob/master/_layouts/default.html).
-2. For more extensive changes, [copy the original template](https://github.com/pages-themes/cayman/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-3. Create a file called `/_layouts/default.html` in your site
-4. Paste the default layout content copied in the first step
-5. Customize the layout as you'd like
+```
+# Expose Grafana dashboard and launch it
+❯ cbrctl show
+```
+Sample Dashboard: 
+<img width="1680" alt="Screen Shot 2022-06-30 at 9 48 20 PM" src="https://user-images.githubusercontent.com/104105400/188719358-bd061aef-f5aa-4d2f-a250-fd024a4190a3.png">
 
-### Customizing Google Analytics code
+# **Step 4:** *Carbonara Insight*
+Explore the dashboard for viewing your Carbon Emission score for all your running workloads.
 
-Google has released several iterations to their Google Analytics code over the years since this theme was first created. If you would like to take advantage of the latest code, paste it into `_includes/head-custom-google-analytics.html` in your Jekyll site.
+## Updating Carbonara Client
+```
+# Installs new version from pypi
+❯ pip upgrade cbrctl
+```
 
-### Overriding GitHub-generated URLs
+## Updating Carbonara Agent
+```
+# Coming soon ...
+```
 
-Templates often rely on URLs supplied by GitHub such as links to your repository or links to download your project. If you'd like to override one or more default URLs:
-
-1. Look at [the template source](https://github.com/pages-themes/cayman/blob/master/_layouts/default.html) to determine the name of the variable. It will be in the form of `{{ site.github.zip_url }}`.
-2. Specify the URL that you'd like the template to use in your site's `_config.yml`. For example, if the variable was `site.github.url`, you'd add the following:
-    ```yml
-    github:
-      zip_url: http://example.com/download.zip
-      another_url: another value
-    ```
-3. When your site is built, Jekyll will use the URL you specified, rather than the default one provided by GitHub.
-
-*Note: You must remove the `site.` prefix, and each variable name (after the `github.`) should be indent with two space below `github:`.*
-
-For more information, see [the Jekyll variables documentation](https://jekyllrb.com/docs/variables/).
-
-## Roadmap
-
-See the [open issues](https://github.com/pages-themes/cayman/issues) for a list of proposed features (and known issues).
-
-## Project philosophy
-
-The Cayman theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
-
-## Contributing
-
-Interested in contributing to Cayman? We'd love your help. Cayman is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
-
-### Previewing the theme locally
-
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
-
-1. Clone down the theme's repository (`git clone https://github.com/pages-themes/cayman`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
-
-### Running tests
-
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` once before the test script will work.
+## Uninstalling Carbonara
+```
+# Uninstalls resources configured by Carbonara
+❯ cbrctl eject
+```
+```
+# Uninstalls Carbonara Client
+❯ pip uninstall -y cbrctl
+```
