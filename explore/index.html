@@ -13,7 +13,7 @@
     <script type="module" src="./map.js"></script>
   </head>
   <body>
-    <h3>Carbonara Explore | Geographical Emission</h3>
+    <h3>Carbonara Explore | Geographical Emission {{ secrets.GOOGLE_MAPS_KEY }}</h3>
     <!--The div element for the map -->
     <div id="map"></div>
 
@@ -24,7 +24,7 @@
      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
     -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv2mO5r6R2afhsMlLJh9281lWRZ7BBTZ4&libraries=visualization"
+      src="https://maps.googleapis.com/maps/api/js?key={{ secrets.GOOGLE_MAPS_KEY }}&libraries=visualization"
       defer
     ></script>
   </body>

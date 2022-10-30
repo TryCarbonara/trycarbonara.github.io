@@ -10,6 +10,7 @@ github_username: trycarbonara
 show_downloads: false
 github:
   is_project_page: true
+  readme_url: "https://github.com/TryCarbonara/trycarbonara.github.io/blob/main/README.md"
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
