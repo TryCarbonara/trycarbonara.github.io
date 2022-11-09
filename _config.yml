@@ -5,6 +5,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://trycarbonara.github.io" # the base hostname & protocol for your site
 swagger: "swagger.html"
+google_map_key: ${{ secrets.GOOGLE_MAPS_KEY }}
 # twitter_username: jekyllrb
 github_username: trycarbonara
 show_downloads: false
