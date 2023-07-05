@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Methodology &#8212; Trycarbonara  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'methodology';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installing Trycarbonara on Linux Box" href="linux-machine.html" />
+    <link rel="prev" title="Getting Started" href="getting-started.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-name.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo-name.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Methodology</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Baremetal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="linux-machine.html">Installing Trycarbonara on Linux Box</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cloud</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Installing Trycarbonara on Kubernetes Cluster</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">On-Demand</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api.html">Supported APIs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="troubleshoot-kube.html">Troubleshooting - Kubernetes</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/methodology.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Methodology</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-emissions">Operational Emissions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-usage">Electricity Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-memory-energy-estimation">Compute/Memory Energy Estimation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-energy-estimation">Storage Energy Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#consideration-of-replication-factors"><em>Consideration of Replication Factors</em></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#network-energy-estimation">Network Energy Estimation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-usage-effectiveness">Power Usage Effectiveness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-emissions-factors">Grid Emissions Factors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embodied-emissions">Embodied Emissions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-consumption-data-source">Power Consumption Data Source</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ipmi">IPMI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-exporter">Node Exporter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="methodology">
+<h1>Methodology<a class="headerlink" href="#methodology" title="Permalink to this heading">#</a></h1>
+<p>In order to address carbon emissions from software, we focus on two main sources: Operational and Embodied Emissions. These are discussed in depth in the <a class="reference external" href="https://github.com/Green-Software-Foundation/sci/blob/main/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md">Software Carbon Intensity (SCI)</a> specification, developed by the <a class="reference external" href="https://greensoftware.foundation/">Green Software Foundation</a>. At Trycarbonara, we use this methodology to calculate the total carbon footprint of software.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Emissions</span> <span class="pre">=</span> <span class="pre">Operational</span> <span class="pre">Emissions</span> <span class="pre">+</span> <span class="pre">Embodied</span> <span class="pre">Emissions</span></code></p>
+<section id="operational-emissions">
+<h2>Operational Emissions<a class="headerlink" href="#operational-emissions" title="Permalink to this heading">#</a></h2>
+<p>Operational Emissions are produced due to electricity consumption, which powers various components of a service, including servers, databases, and other systems. To calculate these emissions, we need to accurately measure the electricity usage of these components and the carbon emissions factor of the local grid where the service is run.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Operational</span> <span class="pre">emissions</span> <span class="pre">=</span> <span class="pre">(Electricity</span> <span class="pre">usage</span> <span class="pre">[kWh])</span> <span class="pre">x</span> <span class="pre">(Instance</span> <span class="pre">provider</span> <span class="pre">Power</span> <span class="pre">Usage</span> <span class="pre">Effectiveness</span> <span class="pre">(PUE))</span> <span class="pre">x</span> <span class="pre">(grid</span> <span class="pre">emissions</span> <span class="pre">factors</span> <span class="pre">[metric</span> <span class="pre">tonnes</span> <span class="pre">CO2e/kWh])</span></code></p>
+<section id="electricity-usage">
+<h3>Electricity Usage<a class="headerlink" href="#electricity-usage" title="Permalink to this heading">#</a></h3>
+<p>The amount of electricity used by software is one of the biggest sources of Carbon Emissions. The total electricity usage is the sum of usage from compute, memory, storage, and networking:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Electricity</span> <span class="pre">Usage</span> <span class="pre">=</span> <span class="pre">Electricity</span> <span class="pre">Usage</span> <span class="pre">From</span> <span class="pre">[Compute</span> <span class="pre">+</span> <span class="pre">Memory</span> <span class="pre">+</span> <span class="pre">Storage</span> <span class="pre">+</span> <span class="pre">Networking]</span></code></p>
+<section id="compute-memory-energy-estimation">
+<h4>Compute/Memory Energy Estimation<a class="headerlink" href="#compute-memory-energy-estimation" title="Permalink to this heading">#</a></h4>
+<p>For the estimation of Compute &amp; Memory in servers, we leverage hardware sensors capable of providing detailed power consumption data. Examples of such tools include IPMI and Redfish for server management, and NVML for monitoring NVIDIA GPUs. However, our method is not exclusive to these specific tools. We employ any available hardware sensor, regardless of the manufacturer, that can deliver accurate power information. This approach ensures a comprehensive understanding of both compute and memory usage across different server types.</p>
+</section>
+<section id="storage-energy-estimation">
+<h4>Storage Energy Estimation<a class="headerlink" href="#storage-energy-estimation" title="Permalink to this heading">#</a></h4>
+<p>For estimating the energy usage associated with storage, we adopt the methodology suggested by the <a class="reference external" href="https://www.cloudcarbonfootprint.org/">Cloud Carbon Footprint</a>project. This methodology involves deriving a coefficient for energy usage (in Watt-hours) per Terabyte of storage, both for Hard Disk Drives (HDDs) and Solid State Drives (SSDs).</p>
+<p>HDD Energy Usage Estimation:</p>
+<ul class="simple">
+<li><p>Average HDD capacity in 2020: 10 Terabytes per disk</p></li>
+<li><p>Average power draw per disk for 2020: 6.5 Watts per disk</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Energy</span> <span class="pre">Usage</span> <span class="pre">(Watt-Hours</span> <span class="pre">per</span> <span class="pre">Terabyte)</span> <span class="pre">=</span> <span class="pre">Power</span> <span class="pre">Draw</span> <span class="pre">(Watt-Hours</span> <span class="pre">per</span> <span class="pre">Disk)</span> <span class="pre">/</span> <span class="pre">Storage</span> <span class="pre">Capacity</span> <span class="pre">(Terabytes</span> <span class="pre">per</span> <span class="pre">Disk)</span></code></p>
+<p>This translates to: <code class="docutils literal notranslate"><span class="pre">0.65</span> <span class="pre">Watt-Hours</span> <span class="pre">per</span> <span class="pre">Terabyte</span> <span class="pre">for</span> <span class="pre">HDD</span> <span class="pre">=</span> <span class="pre">6.5</span> <span class="pre">Watt-Hours</span> <span class="pre">per</span> <span class="pre">Disk</span> <span class="pre">/</span> <span class="pre">10</span> <span class="pre">Terabytes</span> <span class="pre">per</span> <span class="pre">Disk</span></code></p>
+<p>SSD Energy Usage Estimation:</p>
+<ul class="simple">
+<li><p>Average SSD capacity in 2020: 5 Terabytes per disk</p></li>
+<li><p>Average power draw per disk for 2020: 6 Watts per disk</p></li>
+</ul>
+<p>Similarly, for SSDs, the energy usage per Terabyte is calculated as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Energy</span> <span class="pre">Usage</span> <span class="pre">(Watt-Hours</span> <span class="pre">per</span> <span class="pre">Terabyte)</span> <span class="pre">=</span> <span class="pre">Power</span> <span class="pre">Draw</span> <span class="pre">(Watt-Hours</span> <span class="pre">per</span> <span class="pre">Disk)</span> <span class="pre">/</span> <span class="pre">Storage</span> <span class="pre">Capacity</span> <span class="pre">(Terabytes</span> <span class="pre">per</span> <span class="pre">Disk)</span></code></p>
+<p>This gives: <code class="docutils literal notranslate"><span class="pre">1.2</span> <span class="pre">Watt-Hours</span> <span class="pre">per</span> <span class="pre">Terabyte</span> <span class="pre">for</span> <span class="pre">SSD</span> <span class="pre">=</span> <span class="pre">6</span> <span class="pre">Watt-Hours</span> <span class="pre">per</span> <span class="pre">Disk</span> <span class="pre">/</span> <span class="pre">5</span> <span class="pre">Terabytes</span> <span class="pre">per</span> <span class="pre">Disk</span></code></p>
+<p>To obtain the measure of Terabytes from different services, we query for the total bytes available rather than the total bytes used. This is because the total bytes available represent a more accurate reflection of the energy required to support storage.</p>
+<section id="consideration-of-replication-factors">
+<h5><em>Consideration of Replication Factors</em><a class="headerlink" href="#consideration-of-replication-factors" title="Permalink to this heading">#</a></h5>
+<p>Our carbon emissions calculation methodology accounts for storage replication. We set the replication factor as 1 by default, but this can be adjusted based on the specific configurations of the service or workload.</p>
+</section>
+</section>
+<section id="network-energy-estimation">
+<h4>Network Energy Estimation<a class="headerlink" href="#network-energy-estimation" title="Permalink to this heading">#</a></h4>
+<p>The application estimates network energy usage by looking at the total network usage, both incoming and outgoing data, in bytes. This total bandwidth usage is then used to calculate energy consumption. A coefficient of 1 Wh/Gb, as suggested by <a class="reference external" href="https://www.cloudcarbonfootprint.org/docs/methodology">Cloud Carbon Footprint’s methodology</a>, is used in this calculation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Networking</span> <span class="pre">Coefficient</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">Wh/Gb</span></code></p>
+</section>
+</section>
+<section id="power-usage-effectiveness">
+<h3>Power Usage Effectiveness<a class="headerlink" href="#power-usage-effectiveness" title="Permalink to this heading">#</a></h3>
+<p>In estimating the carbon emissions of workloads, we take into account the energy consumption for compute, storage, memory, and networking. This is then multiplied by the Power Usage Effectiveness (PUE) of the data center. PUE is a measure of a data center’s energy efficiency, with a PUE of 1 indicating that all consumed energy is dedicated to powering the servers, without any energy being wasted on cooling. We default to an industry average PUE of <a class="reference external" href="https://uptimeinstitute.com/about-ui/press-releases/uptime-institute-11th-annual-global-data-center-survey#:~:text=In%202021%2C%20the%20average%20annualized,over%20the%20past%20five%20years.">1.57</a>, as suggested by the Uptime Institute, for on-premise workloads. For cloud-based workloads, we have specific PUE values for each of the three major cloud providers. However, this value can be adjusted based on user input if more specific data is available, allowing our methodology to provide a more accurate carbon footprint based on the specific circumstances of each workload.</p>
+</section>
+<section id="grid-emissions-factors">
+<h3>Grid Emissions Factors<a class="headerlink" href="#grid-emissions-factors" title="Permalink to this heading">#</a></h3>
+<p>Trycarbonara calculates two types of emissions: Attributional (Location-based) and Consequential. Attributional emissions assign a portion of the grid’s emissions to your specific workloads based on their location. Consequential emissions reflect the system-wide impact of your operations on the grid’s emissions, whether causing an increase or decrease. Our methodology is designed to be compatible with popular frameworks such as the GHG Protocol and the GSF SCI, and we collaborate with two organizations, <a class="reference external" href="https://www.watttime.org/">Watttime</a> and <a class="reference external" href="https://www.electricitymaps.com/">Electricity Maps</a>, to obtain the necessary data for Grid Emissions.</p>
+<p>The equations to calculate these emissions are as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Attributional</span> <span class="pre">Emissions</span> <span class="pre">=</span> <span class="pre">(Electricity</span> <span class="pre">usage</span> <span class="pre">[kWh])</span> <span class="pre">x</span> <span class="pre">(Instance</span> <span class="pre">provider</span> <span class="pre">Power</span> <span class="pre">Usage</span> <span class="pre">Effectiveness</span> <span class="pre">(PUE))</span> <span class="pre">x</span> <span class="pre">(Average</span> <span class="pre">Emissions</span> <span class="pre">Rate</span> <span class="pre">[metric</span> <span class="pre">tonnes</span> <span class="pre">CO2e/kWh])</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Consequential</span> <span class="pre">Emissions</span> <span class="pre">=</span> <span class="pre">(Electricity</span> <span class="pre">usage</span> <span class="pre">[kWh])</span> <span class="pre">x</span> <span class="pre">(Instance</span> <span class="pre">provider</span> <span class="pre">Power</span> <span class="pre">Usage</span> <span class="pre">Effectiveness</span> <span class="pre">(PUE))</span> <span class="pre">x</span> <span class="pre">(Marginal</span> <span class="pre">Emissions</span> <span class="pre">Rate</span> <span class="pre">[metric</span> <span class="pre">tonnes</span> <span class="pre">CO2e/kWh])</span></code></p>
+<p>We use average and marginal emissions rates from Watttime and Electricity Maps respectively. In cases where these specific emissions data aren’t available, we use default data sources. For the Average Emissions Rate, we default to <a class="reference external" href="https://ourworldindata.org/electricity-mix">“Our World In Data”</a>, and for the Marginal Emissions Rate, we default to the <a class="reference external" href="https://unfccc.int/sites/default/files/resource/IFI%20Default%20Grid%20Factors%202021%20v3.1_unfccc.xlsx">UNFCCC data source</a>.</p>
+</section>
+</section>
+<section id="embodied-emissions">
+<h2>Embodied Emissions<a class="headerlink" href="#embodied-emissions" title="Permalink to this heading">#</a></h2>
+<p>Embodied Carbon Emissions or <a class="reference external" href="https://en.wikipedia.org/wiki/Embedded_emissions">Embedded Emissions</a> is the amount of carbon emitted during the creation and disposal of a hardware device. In order to estimate embodied emissions for the servers used to host and run software services and workloads, we need to calculate the fraction of the total embodied emissions that should be allocated to the usage of these servers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Embodied</span> <span class="pre">Emissions</span> <span class="pre">=</span> <span class="pre">Estimated</span> <span class="pre">emissions</span> <span class="pre">from</span> <span class="pre">Manufacturing,</span> <span class="pre">Transportation</span> <span class="pre">and</span> <span class="pre">End</span> <span class="pre">of</span> <span class="pre">life</span> <span class="pre">management</span> <span class="pre">of</span> <span class="pre">Server</span> <span class="pre">[metric</span> <span class="pre">tonnes</span> <span class="pre">CO2e</span> <span class="pre">]</span></code></p>
+<p>The Green Software Foundation (GSF) released the <a class="reference external" href="https://github.com/Green-Software-Foundation/sci/blob/main/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md">Software Carbon Intensity (SCI) Specification</a>, which defines a methodology for calculating the rate of carbon emissions for a software system. For the purpose of estimating embodied emissions, we have leveraged the relevant part of the specification.</p>
+<p>In our implementation, we leverage this formula provided by the SCI standard:</p>
+<p><code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">TE*(TR/EL)*(RR/TR)</span></code></p>
+<p>Where:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TE</span> <span class="o">=</span> <span class="n">Total</span> <span class="n">Embodied</span> <span class="n">Emissions</span><span class="p">,</span> <span class="n">the</span> <span class="nb">sum</span> <span class="n">of</span> <span class="n">Life</span> <span class="n">Cycle</span> <span class="n">Assessment</span><span class="p">(</span><span class="n">LCA</span><span class="p">)</span> <span class="n">emissions</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">hardware</span> <span class="n">components</span>
+<span class="n">TR</span> <span class="o">=</span> <span class="n">Time</span> <span class="n">Reserved</span><span class="p">,</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">time</span> <span class="n">the</span> <span class="n">hardware</span> <span class="ow">is</span> <span class="n">reserved</span> <span class="k">for</span> <span class="n">use</span> <span class="n">by</span> <span class="n">the</span> <span class="n">software</span>
+<span class="n">EL</span> <span class="o">=</span> <span class="n">Expected</span> <span class="n">Lifespan</span><span class="p">,</span> <span class="n">the</span> <span class="n">anticipated</span> <span class="n">time</span> <span class="n">that</span> <span class="n">the</span> <span class="n">equipment</span> <span class="n">will</span> <span class="n">be</span> <span class="n">installed</span>
+<span class="n">RR</span> <span class="o">=</span> <span class="n">Resources</span> <span class="n">Reserved</span><span class="p">,</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">resources</span> <span class="n">reserved</span> <span class="k">for</span> <span class="n">use</span> <span class="n">by</span> <span class="n">the</span> <span class="n">software</span><span class="o">.</span>
+<span class="n">TR</span> <span class="o">=</span> <span class="n">Total</span> <span class="n">Resources</span><span class="p">,</span> <span class="n">the</span> <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">resources</span> <span class="n">available</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The embodied emissions are typically modeled based on the specific server model used. For example, if the <a class="reference external" href="https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-poweredge-r940.pdf">Dell PowerEdge R940</a> server is used, the embodied emissions can be modeled as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">According</span> <span class="n">to</span> <span class="n">Dell</span><span class="p">,</span> <span class="n">the</span> <span class="n">total</span> <span class="n">embodied</span> <span class="n">emissions</span> <span class="k">for</span> <span class="s1">&#39;Manufacturing, Transportation and End of Life&#39;</span> <span class="n">of</span> <span class="n">PowerEdge</span> <span class="mi">940</span> <span class="o">=</span> <span class="mf">10.6</span><span class="o">%</span> <span class="n">of</span> <span class="n">Total</span> <span class="n">LCA</span><span class="o">.</span>
+<span class="n">Total</span> <span class="n">Embodied</span> <span class="n">Emissions</span> <span class="o">=</span> <span class="mf">1.466</span> <span class="n">tonnes</span> <span class="n">CO2eq</span>
+<span class="n">Expected</span> <span class="n">Lifespan</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">years</span> <span class="o">=</span> <span class="mi">17520</span> <span class="n">hours</span>
+<span class="n">Resources</span> <span class="n">Reserved</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">(</span><span class="n">Since</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">server</span> <span class="ow">is</span> <span class="n">used</span><span class="p">)</span>
+<span class="n">Total</span> <span class="n">Resources</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Hourly</span> <span class="n">Embodied</span> <span class="n">Emissions</span> <span class="n">Constant</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.466</span><span class="o">/</span><span class="mi">17520</span><span class="p">)</span> <span class="n">tons</span><span class="o">/</span><span class="n">hours</span>
+</pre></div>
+</div>
+<p>Please note that this is an example calculation and the specifics will vary depending on the server model used and the results from its Life Cycle Assessment.</p>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">#</a></h2>
+<section id="power-consumption-data-source">
+<h3>Power Consumption Data Source<a class="headerlink" href="#power-consumption-data-source" title="Permalink to this heading">#</a></h3>
+<p>Trycarbonara uses system tooling to fetch detailed system/process level power consumption metrics specifically for compute and memory resources on bare-metal hosts. Here is the list of the open source software (OSS) tooling that Trycarbonara leverages:</p>
+<section id="ipmi">
+<h4>IPMI<a class="headerlink" href="#ipmi" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://www.gnu.org/software/freeipmi/">IPMI Project</a> provides in-band and out-of-band IPMI software based on the <a class="reference external" href="http://developer.intel.com/design/servers/ipmi/index.htm">IPMI v1.5/2.0</a> specification.</p>
+<p>The IPMI specification defines a set of interfaces for platform management and is used by a variety of vendors for system management on motherboards. The features of IPMI that are most pertinent for Trycarbonara’s needs are sensor monitoring and remote power control. These features allow for the measurement and control of power consumption metrics.</p>
+</section>
+<section id="node-exporter">
+<h4>Node Exporter<a class="headerlink" href="#node-exporter" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/prometheus/node_exporter">Node Exporter</a> is a Prometheus exporter for hardware and OS metrics exposed by UNIX kernels, written in Go with pluggable metric collectors.</p>
+<p>Trycarbonara uses Node Exporter to collect data on storage and network utilization. These metrics are then combined with appropriate factors to compute energy consumption by the resources, providing a detailed breakdown of power usage.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="getting-started.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting Started</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="linux-machine.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installing Trycarbonara on Linux Box</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-emissions">Operational Emissions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-usage">Electricity Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-memory-energy-estimation">Compute/Memory Energy Estimation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-energy-estimation">Storage Energy Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#consideration-of-replication-factors"><em>Consideration of Replication Factors</em></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#network-energy-estimation">Network Energy Estimation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-usage-effectiveness">Power Usage Effectiveness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-emissions-factors">Grid Emissions Factors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embodied-emissions">Embodied Emissions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-consumption-data-source">Power Consumption Data Source</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ipmi">IPMI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-exporter">Node Exporter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Karbonara Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Karbonara Inc..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

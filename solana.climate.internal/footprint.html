@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Solana Climate Dashboard | Trycarbonara Overview</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body onload="onLoad()">
+  <div class="site-wrap">
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <div class="container">
+
+      <div class="row no-gutters site-navbar align-items-center py-3">
+
+        <div class="col-6 col-lg-4 site-logo">
+          <a href="index.html"> <img src="images/flaticon/png/solana_climate_logo.png" alt="SolanaClimate" width="90%" height="90%"> </a>
+        </div>
+        <div class="col-6 col-lg-8 text-right menu">
+          <nav class="site-navigation text-right text-md-right">
+
+            <ul class="site-menu js-clone-nav d-none d-lg-block">
+              <li class="active"><a href="index.html">Network Summary</a></li>
+              <li><a href="validators.html">Validators</a></li>
+              <li><a href="rpc.html">RPC Nodes</a></li>
+              <li><a href="methodology.html">Methodology</a></li>
+            </ul>
+
+            <a href="#" class="site-menu-toggle js-menu-toggle text-black d-inline-block d-lg-none"><span class="icon-menu h3"></span></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+
+        
+          <div class="row">
+            <div class="align-items-stretch">
+              <table>
+                <tr>
+                    <th>Comparison (w/ source)</th>
+                    <th>Watts</th>
+                    <th>Kilowatt-hour</th>
+                    <th>Joules</th>
+                    <th>Equivalent Solana non-voting transactions</th>
+                    <th>Equivalent Solana non-voting + voting transactions</th>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.eia.gov/tools/faqs/faq.php?id=97&t=3">Average US household (per year)</a></td>
+                    <td><input type='text' id='b1' value="10715000"></td>
+                    <td><input type='text' id='c1' disabled></td>
+                    <td><input type='text' id='d1' disabled></td>
+                    <td><input type='text' id='e1' disabled></td>
+                    <td><input type='text' id='f1' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://store.chipkin.com/articles/did-you-know-it-takes-00003-kwh-per-google-search-and-more">One Google search</a></td>
+                    <td><input type='text' id='b2' value="0.30"></td>
+                    <td><input type='text' id='c2' disabled></td>
+                    <td><input type='text' id='d2' disabled></td>
+                    <td><input type='text' id='e2' disabled></td>
+                    <td><input type='text' id='f2' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">One Solana non-voting transaction</a></td>
+                    <td><input type='text' id='b3' value="0.91"></td>
+                    <td><input type='text' id='c3' disabled></td>
+                    <td><input type='text' id='d3' disabled></td>
+                    <td><input type='text' id='e3' disabled></td>
+                    <td><input type='text' id='f3' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.cnet.com/home/energy-and-utilities/watts-vs-lumens-how-to-choose-the-right-led-light-bulb/">Using an LED lightbulb (per hour)</a></td>
+                    <td><input type='text' id='b4' value="10"></td>
+                    <td><input type='text' id='c4' disabled></td>
+                    <td><input type='text' id='d4' disabled></td>
+                    <td><input type='text' id='e4' disabled></td>
+                    <td><input type='text' id='f4' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://bgr.com/tech/iphone-13-battery-size-data-revealed-for-all-four-models/">Fully charging iPhone 13 battery</a></td>
+                    <td><input type='text' id='b5' value="12.41"></td>
+                    <td><input type='text' id='c5' disabled></td>
+                    <td><input type='text' id='d5' disabled></td>
+                    <td><input type='text' id='e5' disabled></td>
+                    <td><input type='text' id='f5' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.npr.org/2014/01/28/267185097/in-the-dark-about-picking-a-light-bulb-this-faq-can-help">Using a CFL lightbulb (per hour)</a></td>
+                    <td><input type='text' id='b6' value="13"></td>
+                    <td><input type='text' id='c6' disabled></td>
+                    <td><input type='text' id='d6' disabled></td>
+                    <td><input type='text' id='e6' disabled></td>
+                    <td><input type='text' id='f6' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://hes-documentation.lbl.gov/calculation-methodology/calculation-of-energy-consumption/major-appliances/miscellaneous-equipment-energy-consumption/default-energy-consumption-of-mels">Working on a computer/monitor/router (per hour)</a></td>
+                    <td><input type='text' id='b7' value="158"></td>
+                    <td><input type='text' id='c7' disabled></td>
+                    <td><input type='text' id='d7' disabled></td>
+                    <td><input type='text' id='e7' disabled></td>
+                    <td><input type='text' id='f7' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.cnet.com/home/energy-and-utilities/watts-vs-lumens-how-to-choose-the-right-led-light-bulb/">Using a 60W incandescent lightbulb (per hour)</a></td>
+                    <td><input type='text' id='b8' value="60"></td>
+                    <td><input type='text' id='c8' disabled></td>
+                    <td><input type='text' id='d8' disabled></td>
+                    <td><input type='text' id='e8' disabled></td>
+                    <td><input type='text' id='f8' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://hes-documentation.lbl.gov/calculation-methodology/calculation-of-energy-consumption/major-appliances/miscellaneous-equipment-energy-consumption/default-energy-consumption-of-mels">Keeping coffee warm on drip coffee maker (per hour)</a></td>
+                    <td><input type='text' id='b9' value="70"></td>
+                    <td><input type='text' id='c9' disabled></td>
+                    <td><input type='text' id='d9' disabled></td>
+                    <td><input type='text' id='e9' disabled></td>
+                    <td><input type='text' id='f9' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://hes-documentation.lbl.gov/calculation-methodology/calculation-of-energy-consumption/major-appliances/miscellaneous-equipment-energy-consumption/default-energy-consumption-of-mels">Watching an LCD television (per hour)</a></td>
+                    <td><input type='text' id='b10' value="150"></td>
+                    <td><input type='text' id='c10' disabled></td>
+                    <td><input type='text' id='d10' disabled></td>
+                    <td><input type='text' id='e10' disabled></td>
+                    <td><input type='text' id='f10' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.playstation.com/en-gb/legal/ecodesign/">Playing a video game on a PS5 (per hour)</a></td>
+                    <td><input type='text' id='b11' value="197"></td>
+                    <td><input type='text' id='c11' disabled></td>
+                    <td><input type='text' id='d11' disabled></td>
+                    <td><input type='text' id='e11' disabled></td>
+                    <td><input type='text' id='f11' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://energyusecalculator.com/electricity_refrigerator.htm">Running large refrigerator (per hour)</a></td>
+                    <td><input type='text' id='b12' value="180"></td>
+                    <td><input type='text' id='c12' disabled></td>
+                    <td><input type='text' id='d12' disabled></td>
+                    <td><input type='text' id='e12' disabled></td>
+                    <td><input type='text' id='f12' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://hes-documentation.lbl.gov/calculation-methodology/calculation-of-energy-consumption/major-appliances/miscellaneous-equipment-energy-consumption/default-energy-consumption-of-mels">Brewing coffee on drip coffee maker (per hour)</a></td>
+                    <td><input type='text' id='b13' value="1500"></td>
+                    <td><input type='text' id='c13' disabled></td>
+                    <td><input type='text' id='d13' disabled></td>
+                    <td><input type='text' id='e13' disabled></td>
+                    <td><input type='text' id='f13' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://energyusecalculator.com/electricity_oven.htm">Cooking in an electric oven (per hour)</a></td>
+                    <td><input type='text' id='b14' value="2400"></td>
+                    <td><input type='text' id='c14' disabled></td>
+                    <td><input type='text' id='d14' disabled></td>
+                    <td><input type='text' id='e14' disabled></td>
+                    <td><input type='text' id='f14' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://energyusecalculator.com/electricity_centralac.htm">Central air conditioning (per hour)</a></td>
+                    <td><input type='text' id='b15' value="3500"></td>
+                    <td><input type='text' id='c15' disabled></td>
+                    <td><input type='text' id='d15' disabled></td>
+                    <td><input type='text' id='e15' disabled></td>
+                    <td><input type='text' id='f15' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.jdpower.com/cars/shopping-guides/what-is-kwh-per-100-miles">One gallon of gasoline</a></td>
+                    <td><input type='text' id='b16' value="33700"></td>
+                    <td><input type='text' id='c16' disabled></td>
+                    <td><input type='text' id='d16' disabled></td>
+                    <td><input type='text' id='e16' disabled></td>
+                    <td><input type='text' id='f16' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://digiconomist.net/ethereum-energy-consumption">One Ethereum transaction (pre-merge)</a></td>
+                    <td><input type='text' id='b17' value="200000"></td>
+                    <td><input type='text' id='c17' disabled></td>
+                    <td><input type='text' id='d17' disabled></td>
+                    <td><input type='text' id='e17' disabled></td>
+                    <td><input type='text' id='f17' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://digiconomist.net/ethereum-energy-consumption">One Ethereum transaction (post-merge)</a></td>
+                    <td><input type='text' id='b18' value="40"></td>
+                    <td><input type='text' id='c18' disabled></td>
+                    <td><input type='text' id='d18' disabled></td>
+                    <td><input type='text' id='e18' disabled></td>
+                    <td><input type='text' id='f18' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://digiconomist.net/bitcoin-energy-consumption">One Bitcoin transaction</a></td>
+                    <td><input type='text' id='b19' value="1390000"></td>
+                    <td><input type='text' id='c19' disabled></td>
+                    <td><input type='text' id='d19' disabled></td>
+                    <td><input type='text' id='e19' disabled></td>
+                    <td><input type='text' id='f19' disabled></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Running the Solana network (per hour)</a></td>
+                    <td><input type='text' id='b20' value="1127000"></td>
+                    <td><input type='text' id='c20' disabled></td>
+                    <td><input type='text' id='d20' disabled></td>
+                    <td><input type='text' id='e20' disabled></td>
+                    <td><input type='text' id='f20' disabled></td>
+                  </tr>
+              </table>
+    
+            </div>
+          </div>
+        <div class="row">
+          <div class="align-items-stretch">
+            <br>
+            Solana network power intensity <input type='text' id='s1' value="3290"> J per non-voting transaction
+          </div>
+        </div>
+        <div class="row">
+          <div class="align-items-stretch">
+            <br>
+            Solana network power intensity <input type='text' id='s2' value="508"> J per non-voting + voting transaction
+          </div>
+        </div>
+        <div class="row">
+          <div class="align-items-stretch">
+            <br>
+            <input type="button" value="Calculate" class="button" onClick="onLoad()"></input>
+          </div>
+        </div>
+
+      </div>
+    </div> <!-- END .site-section -->
+
+    <div class="footer">
+      <div class="container">
+        <div class="row footer-inner">
+          <div class="col-2 mt-5 text-left"><a href="https://www.trycarbonara.com/privacy" target="_blank">Privacy Policy</a></div>
+          <div class="col-8 mt-5 text-center">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Powered by <a href="https://www.trycarbonara.com" target="_blank">Trycarbonara</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+          <div class="col-2 mt-5 text-right"><a href="https://www.trycarbonara.com/terms" target="_blank">Terms of Use</a></div>
+        </div>
+      </div>
+    </div >
+
+
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/footprint.js"></script>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>

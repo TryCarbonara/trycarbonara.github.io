@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Installing Trycarbonara on Linux Box &#8212; Trycarbonara  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'linux-machine';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installing Trycarbonara on Kubernetes Cluster" href="kubernetes.html" />
+    <link rel="prev" title="Methodology" href="methodology.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-name.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo-name.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methodology.html">Methodology</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Baremetal</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installing Trycarbonara on Linux Box</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cloud</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Installing Trycarbonara on Kubernetes Cluster</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">On-Demand</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api.html">Supported APIs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="troubleshoot-kube.html">Troubleshooting - Kubernetes</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/linux-machine.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Installing Trycarbonara on Linux Box</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-ipmi-exporter-tool-for-host-cpu-power-consumption-data"><strong>Step 1:</strong> Install <em>IPMI exporter tool</em>, for host <strong>CPU</strong> power consumption data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#and-or">and/or</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-dcgm-exporter-tool-for-host-gpu-nvidia-power-consumption-data"><strong>Step 1+:</strong> Install <em>DCGM exporter tool</em>, for host <strong>GPU (Nvidia)</strong> power consumption data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-nvidia-gpu-exporter-tool-for-host-gpu-nvidia-power-consumption-data"><strong>Step 1+:</strong> Install <em>NVIDIA GPU exporter tool</em>, for host <strong>GPU (Nvidia)</strong> power consumption data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-node-exporter-tool-for-host-resource-usage-data"><strong>Step 2:</strong> Install <em>node exporter tool</em>, for host resource usage data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-hubblo-scaphendre-tool-for-process-level-power-consumption-data-using-rapl-sensor"><strong>Step 3:</strong> Install <em>hubblo/scaphendre tool</em>, for process level power consumption data using RAPL sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-install-process-exporter-tool-for-process-level-resource-usage-data"><strong>Step 4:</strong> Install <em>process exporter tool</em>, for process level resource usage data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-validate-the-generated-metrics"><strong>Step 5:</strong> Validate the generated metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-installation">Post Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-grafana-agent-for-enabling-metrics-push">Install <em>Grafana Agent</em>, for enabling metrics push</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="installing-trycarbonara-on-linux-box">
+<h1>Installing Trycarbonara on Linux Box<a class="headerlink" href="#installing-trycarbonara-on-linux-box" title="Permalink to this heading">#</a></h1>
+<p>Welcome! This guide will walk you through installing Trycarbonara into your bare-metal machine. Currently, Trycarbonara supports Linux as the initial OS offering for on-prem machines. Trycarbonara uses a combination of 2 methodologies to provide the most accurate energy consumption and carbon emission scores.</p>
+<ul class="simple">
+<li><p>Trycarbonara uses tooling to fetch accurate host level power consumption metrics on bare-metal machines specifically for compute/memory resources, which is where IPMI helps. We use RAPL to provide process level granularity for the same, that is <em>optional</em>.</p></li>
+<li><p>Trycarbonara uses <a class="reference external" href="https://www.cloudcarbonfootprint.org/docs/">cloud carbon footprint</a> for storage and network utilization, which requires node_exporter to provide the required metrics. Again process_exporter helps provide process level granularity for more operational purpose, which is <em>optional</em>.</p></li>
+</ul>
+<p>In order to register your node with Trycarbonara and ensure that the required tooling is configured, please follow the below instructions.</p>
+<p><em>Note</em>:</p>
+<ul class="simple">
+<li><p>Please use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> to run all the commands</p></li>
+<li><p>Users are encouraged to leverage <code class="docutils literal notranslate"><span class="pre">systemd</span></code> for managing the binaries (exporter) for better reliability. Please let us know if need further assitance for the same</p></li>
+<li><p>For docker based installs, please refer -</p>
+<ul>
+<li><p>Docker (<a class="reference external" href="https://www.docker.com/">Engine</a>) installed</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Installing Docker Enginer ...&quot;</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker.io
+</pre></div>
+</div>
+<section id="step-1-install-ipmi-exporter-tool-for-host-cpu-power-consumption-data">
+<h2><strong>Step 1:</strong> Install <em>IPMI exporter tool</em>, for host <strong>CPU</strong> power consumption data<a class="headerlink" href="#step-1-install-ipmi-exporter-tool-for-host-cpu-power-consumption-data" title="Permalink to this heading">#</a></h2>
+<p>IPMI Exporter is supported by prometheus community, and provides different mediums to install and setup on the host machine. The exporter relies on tools from the <a class="reference external" href="https://www.gnu.org/software/freeipmi/">FreeIPMI</a> suite for the actual IPMI implementation. The FreeIPMI tooling suite can be installed using:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># FreeIPMI</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>freeipmi-tools<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
+</pre></div>
+</div>
+<p>The actual exporter can further be configured either using docker or binary. Here are the steps for binary installation:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># IPMI Exporter</span>
+wget<span class="w"> </span>https://github.com/prometheus-community/ipmi_exporter/releases/download/v1.6.1/ipmi_exporter-1.6.1.linux-amd64.tar.gz
+tar<span class="w"> </span>xfvz<span class="w"> </span>ipmi_exporter-1.6.1.linux-amd64.tar.gz
+rm<span class="w"> </span>ipmi_exporter-1.6.1.linux-amd64.tar.gz
+./ipmi_exporter-1.6.1.linux-amd64/ipmi_exporter<span class="w"> </span>--config.file<span class="o">=</span>ipmi_local.yml<span class="w"> </span><span class="p">&amp;</span>
+<span class="c1"># Please use the shared ipmi config file: https://raw.githubusercontent.com/Trycarbonara/NodeInstallation/main/ipmi_local.yml, let us know if there is a conflict with any existing configuration on the host.</span>
+</pre></div>
+</div>
+<p>For more details, please refer: <a class="github reference external" href="https://github.com/prometheus-community/ipmi_exporter">prometheus-community/ipmi_exporter</a></p>
+</section>
+<section id="and-or">
+<h2>and/or<a class="headerlink" href="#and-or" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="step-1-install-dcgm-exporter-tool-for-host-gpu-nvidia-power-consumption-data">
+<h2><strong>Step 1+:</strong> Install <em>DCGM exporter tool</em>, for host <strong>GPU (Nvidia)</strong> power consumption data<a class="headerlink" href="#step-1-install-dcgm-exporter-tool-for-host-gpu-nvidia-power-consumption-data" title="Permalink to this heading">#</a></h2>
+<p>DCGM-Exporter is a tool based on the Go APIs to <a class="reference external" href="https://developer.nvidia.com/dcgm">NVIDIA DCGM</a> that allows users to gather GPU metrics and understand workload behavior or monitor GPUs in clusters. dcgm-exporter is written in Go and exposes GPU metrics at an HTTP endpoint (<code class="docutils literal notranslate"><span class="pre">/metrics</span></code>) for monitoring solutions such as Prometheus.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Confirm that the VGA is Nvidia Controller using this command</span>
+lspci<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;VGA|Display &#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s2">&quot; &quot;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-i<span class="w"> </span>lspci<span class="w"> </span>-v<span class="w"> </span>-s<span class="w"> </span><span class="o">{}</span>
+
+<span class="c1"># Make sure appropriate drivers are configured</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ubuntu-drivers-common<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>ubuntu-drivers<span class="w"> </span>devices
+<span class="c1"># Either you choose to install the recommended driver, for ex:</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-driver-530
+<span class="c1"># or you can auto-install latest version of nvidia driver</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>upgrade<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>ubuntu-drivers<span class="w"> </span>autoinstall
+<span class="c1"># Reboot to apply</span>
+sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Nvidia Data Center GPU Manager (DCGM)</span>
+
+<span class="c1"># Note, to remove the outdated signing key:</span>
+sudo<span class="w"> </span>apt-key<span class="w"> </span>del<span class="w"> </span>7fa2af80
+
+<span class="c1"># First we must set up the CUDA repository GPG key. For example, on Ubuntu 20.04 and a x86_64 architecture we run:</span>
+wget<span class="w"> </span>https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>cuda-keyring_1.0-1_all.deb
+sudo<span class="w"> </span>add-apt-repository<span class="w"> </span><span class="s2">&quot;deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /&quot;</span>
+<span class="c1"># Refer: https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/ for other supported architecture and OS types</span>
+
+<span class="c1"># If an error message is issued by previous command reporting that NO_PUBKEY A4B469963BF863CC is available, install that key:</span>
+sudo<span class="w"> </span>apt-key<span class="w"> </span>adv<span class="w"> </span>--keyserver<span class="w"> </span>hkp://keyserver.ubuntu.com:80<span class="w"> </span>--recv-keys<span class="w"> </span>A4B469963BF863C
+
+<span class="c1"># Now we can install DCGM:</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>datacenter-gpu-manager
+
+<span class="c1"># Reboot to apply</span>
+sudo<span class="w"> </span>reboot
+
+<span class="c1"># Enable the automatic start of DCGM service after the system boots:</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nvidia-dcgm
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nvidia-dcgm
+
+<span class="c1"># The installation can be checked with the dcgmiutility:</span>
+sudo<span class="w"> </span>nv-hostengine
+dcgmi<span class="w"> </span>discovery<span class="w"> </span>-l
+
+<span class="c1"># Output should look like:</span>
+<span class="m">1</span><span class="w"> </span>GPU<span class="w"> </span>found.
++--------+--------------------------------------------------------+
+<span class="p">|</span><span class="w"> </span>GPU<span class="w"> </span>ID<span class="w"> </span><span class="p">|</span><span class="w"> </span>Device<span class="w"> </span>Information<span class="w">                                     </span><span class="p">|</span>
++--------+--------------------------------------------------------+
+<span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">      </span><span class="p">|</span><span class="w"> </span>Name:<span class="w"> </span>NVIDIA<span class="w"> </span>GeForce<span class="w"> </span>RTX<span class="w"> </span>YYYY<span class="w">                          </span><span class="p">|</span>
+<span class="p">|</span><span class="w">        </span><span class="p">|</span><span class="w"> </span>PCI<span class="w"> </span>Bus<span class="w"> </span>ID:<span class="w"> </span><span class="m">00000000</span>:01:00.0<span class="w">                           </span><span class="p">|</span>
+<span class="p">|</span><span class="w">        </span><span class="p">|</span><span class="w"> </span>Device<span class="w"> </span>UUID:<span class="w"> </span>GPU-xxxxxxxx-yyyy-dddd-nnnn-zzzzzzzzzzzz<span class="w">  </span><span class="p">|</span>
++--------+--------------------------------------------------------+
+</pre></div>
+</div>
+<p>The actual exporter can further be configured either using docker or binary. Here are the steps for binary installation:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: We already have a compiled binary available, for linux-amd64 arch</span>
+sudo<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/TryCarbonara/NodeInstallation/main/client/dcgm-exporter/dcgm-exporter<span class="w"> </span>-o<span class="w"> </span>/usr/bin/dcgm-exporter<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/usr/bin/dcgm-exporter
+
+<span class="c1"># or</span>
+<span class="c1"># Compile and install the DCGM exporter for Prometheus</span>
+<span class="c1"># DCGM exporter exposes GPU metrics to prometheus, leveraging Nvidia DCGM. If the Go compiler is not installed, we must install it first:</span>
+wget<span class="w"> </span>https://go.dev/dl/go1.18.2.linux-amd64.tar.gz
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/go/bin
+sudo<span class="w"> </span>tar<span class="w"> </span>-C<span class="w"> </span>/usr/local<span class="w"> </span>-xzf<span class="w"> </span>go1.18.2.linux-amd64.tar.gz
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>make
+go<span class="w"> </span>version
+
+<span class="c1"># Clone dcgm-exporter github repository and compile the code:</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/NVIDIA/dcgm-exporter.git
+<span class="nb">cd</span><span class="w"> </span>dcgm-exporter
+make<span class="w"> </span>binary
+sudo<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span><span class="w"> </span>make<span class="w"> </span>install
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/usr/bin/dcgm-exporter
+
+<span class="c1"># To monitor all GPUs run:</span>
+sudo<span class="w"> </span>dcgm-exporter<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># DCGM tool using docker</span>
+<span class="nv">DCGM_EXPORTER_VERSION</span><span class="o">=</span><span class="m">2</span>.1.4-2.3.1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--net<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--cap-add<span class="w"> </span>SYS_ADMIN<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>nvcr.io/nvidia/k8s/dcgm-exporter:<span class="si">${</span><span class="nv">DCGM_EXPORTER_VERSION</span><span class="si">}</span>-ubuntu20.04<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-f<span class="w"> </span>/etc/dcgm-exporter/dcp-metrics-included.csv
+</pre></div>
+</div>
+<p>For more details or installation options, please refer: <a class="github reference external" href="https://github.com/NVIDIA/dcgm-exporter">NVIDIA/dcgm-exporter</a></p>
+</section>
+<section id="step-1-install-nvidia-gpu-exporter-tool-for-host-gpu-nvidia-power-consumption-data">
+<h2><strong>Step 1+:</strong> Install <em>NVIDIA GPU exporter tool</em>, for host <strong>GPU (Nvidia)</strong> power consumption data<a class="headerlink" href="#step-1-install-nvidia-gpu-exporter-tool-for-host-gpu-nvidia-power-consumption-data" title="Permalink to this heading">#</a></h2>
+<p>Nvidia GPU exporter for prometheus, using nvidia-smi binary to gather metrics.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Confirm that the VGA is Nvidia Controller using this command</span>
+lspci<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;VGA|Display &#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s2">&quot; &quot;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-i<span class="w"> </span>lspci<span class="w"> </span>-v<span class="w"> </span>-s<span class="w"> </span><span class="o">{}</span>
+
+<span class="c1"># Make sure appropriate drivers are configured</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ubuntu-drivers-common<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>ubuntu-drivers<span class="w"> </span>devices
+<span class="c1"># Either you choose to install the recommended driver, for ex:</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-driver-530
+<span class="c1"># or you can auto-install latest version of nvidia driver</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>upgrade<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>ubuntu-drivers<span class="w"> </span>autoinstall
+<span class="c1"># Reboot to apply</span>
+sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install GPU exporter</span>
+
+<span class="nv">VERSION</span><span class="o">=</span><span class="m">1</span>.1.0
+sudo<span class="w"> </span>wget<span class="w"> </span>https://github.com/utkuozdemir/nvidia_gpu_exporter/releases/download/v<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/nvidia_gpu_exporter_<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>_linux_x86_64.tar.gz
+sudo<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>nvidia_gpu_exporter_<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>_linux_x86_64.tar.gz
+sudo<span class="w"> </span>mv<span class="w"> </span>nvidia_gpu_exporter<span class="w"> </span>/usr/bin
+<span class="c1"># nvidia_gpu_exporter --help</span>
+
+sudo<span class="w"> </span>cp<span class="w"> </span>client/smi-gpu-exporter/nvidia_gpu_exporter.service<span class="w"> </span>/etc/systemd/system/nvidia_gpu_exporter.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>nvidia_gpu_exporter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nvidia_gpu_exporter
+</pre></div>
+</div>
+<p>Refer: <code class="docutils literal notranslate"><span class="pre">https://github.com/utkuozdemir/nvidia_gpu_exporter</span></code></p>
+</section>
+<section id="step-2-install-node-exporter-tool-for-host-resource-usage-data">
+<h2><strong>Step 2:</strong> Install <em>node exporter tool</em>, for host resource usage data<a class="headerlink" href="#step-2-install-node-exporter-tool-for-host-resource-usage-data" title="Permalink to this heading">#</a></h2>
+<p>Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuring node_exporter to run using docker</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+--net<span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="w"> </span><span class="se">\</span>
+--pid<span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span><span class="s2">&quot;/:/host:ro,rslave&quot;</span><span class="w"> </span><span class="se">\</span>
+quay.io/prometheus/node-exporter:latest<span class="w"> </span><span class="se">\</span>
+--path.rootfs<span class="o">=</span>/host<span class="w"> </span>--collector.processes<span class="w"> </span><span class="se">\</span>
+--collector.systemd<span class="w"> </span>--collector.tcpstat<span class="w"> </span>--collector.cpu.info<span class="w"> </span><span class="se">\</span>
+--collector.diskstats.ignored-devices<span class="o">=</span><span class="s2">&quot;^(ram|loop|fd)\\\\d+</span>$<span class="s2">&quot;</span>
+<span class="c1"># We recommend the above collectors configuration to get a complete coverage, please let us know if there is a conflict with any existing configuration on the host.</span>
+
+<span class="c1"># Configuring node_exporter to run using tarball</span>
+wget<span class="w"> </span>https://github.com/prometheus/node_exporter/releases/download/v*/node_exporter-*.*-amd64.tar.gz
+tar<span class="w"> </span>xvfz<span class="w"> </span>node_exporter-*.*-amd64.tar.gz
+<span class="nb">cd</span><span class="w"> </span>node_exporter-*.*-amd64
+./node_exporter<span class="w"> </span>--collector.processes<span class="w"> </span>--collector.systemd<span class="w"> </span>--collector.tcpstat<span class="w"> </span>--collector.cpu.info<span class="w"> </span>--collector.diskstats.ignored-devices<span class="o">=</span><span class="s2">&quot;^(ram|loop|fd)\\\\d+</span>$<span class="s2">&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<p><em>node_exporter</em> can also be configured using direct binary or <a class="reference external" href="https://github.com/cloudalchemy/ansible-node-exporter">ansible</a>
+For more details, please refer: <a class="github reference external" href="https://github.com/prometheus/node_exporter">prometheus/node_exporter</a></p>
+<hr class="docutils" />
+<blockquote>
+<div><p>The below 2 steps are <em>OPTIONAL</em> but <em>RECOMMENDED</em> for process level granularity</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="step-3-install-hubblo-scaphendre-tool-for-process-level-power-consumption-data-using-rapl-sensor">
+<h2><strong>Step 3:</strong> Install <em>hubblo/scaphendre tool</em>, for process level power consumption data using RAPL sensor<a class="headerlink" href="#step-3-install-hubblo-scaphendre-tool-for-process-level-power-consumption-data-using-rapl-sensor" title="Permalink to this heading">#</a></h2>
+<p>Scaphandre is a monitoring agent, dedicated to energy consumption metrics.</p>
+<p>Depending on your kernel version, you could need to modprobe the module intel_rapl or intel_rapl_common first:</p>
+<p><code class="docutils literal notranslate"><span class="pre">modprobe</span> <span class="pre">intel_rapl_common</span> <span class="pre">#</span> <span class="pre">or</span> <span class="pre">intel_rapl</span> <span class="pre">for</span> <span class="pre">kernels</span> <span class="pre">&lt;</span> <span class="pre">5</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># To quickly run scaphandre in your terminal you may use docker:</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-v<span class="w"> </span>/sys/class/powercap:/sys/class/powercap<span class="w"> </span>-v<span class="w"> </span>/proc:/proc<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-ti<span class="w"> </span>hubblo/scaphandre<span class="w"> </span>prometheus
+
+<span class="c1"># for using downloaded binary (https://hubblo-org.github.io/scaphandre-documentation/tutorials/getting_started.html):</span>
+scaphandre<span class="w"> </span>stdout<span class="w"> </span>-t<span class="w"> </span><span class="m">15</span>
+</pre></div>
+</div>
+<p><em>Note</em>:</p>
+<ul class="simple">
+<li><p>RAPL does support latest AMD Architectures. Also, With the Zen architecture, AMD replaced APM (Application Power Management) with RAPL (Running Average Power Limit). Source: https://arxiv.org/pdf/2108.00808.pdf, <a class="reference external" href="https://developer.amd.com/wp-content/resources/55803_B0_PUB_0_91.pdf">https://developer.amd.com/wp-content/resources/55803_B0_PUB_0_91.pdf</a></p></li>
+<li><p>RAPL has certain requirements to be supported on AMD, like Ubuntu 22.04 or higher or kernel &gt; 5.11</p></li>
+</ul>
+<p>For more details, please refer: <a class="github reference external" href="https://github.com/hubblo-org/scaphandre">hubblo-org/scaphandre</a></p>
+</section>
+<section id="step-4-install-process-exporter-tool-for-process-level-resource-usage-data">
+<h2><strong>Step 4:</strong> Install <em>process exporter tool</em>, for process level resource usage data<a class="headerlink" href="#step-4-install-process-exporter-tool-for-process-level-resource-usage-data" title="Permalink to this heading">#</a></h2>
+<p>Prometheus exporter that mines /proc to report on selected processes.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuring process_exporter to run</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">9256</span>:9256<span class="w"> </span>--privileged<span class="w"> </span>-v<span class="w"> </span>/proc:/host/proc<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/config:/config<span class="w"> </span>ncabatoff/process-exporter<span class="w"> </span>--procfs<span class="w"> </span>/host/proc<span class="w"> </span>-config.path<span class="w"> </span>/config/process.yml
+
+<span class="c1"># Prior to running this command, a dir /config with a config file `process.yml` is expected to exist</span>
+<span class="c1"># Please use the shared process-exporter config file: https://raw.githubusercontent.com/Trycarbonara/NodeInstallation/main/process.yml, let us know if there is a conflict with any existing configuration on the host.</span>
+</pre></div>
+</div>
+<p>For more details, please refer: <a class="github reference external" href="https://github.com/ncabatoff/process-exporter">ncabatoff/process-exporter</a></p>
+</section>
+<section id="step-5-validate-the-generated-metrics">
+<h2><strong>Step 5:</strong> Validate the generated metrics<a class="headerlink" href="#step-5-validate-the-generated-metrics" title="Permalink to this heading">#</a></h2>
+<p>Once the above tooling is configured successfully, please <strong>REBOOT</strong> the machine for system changes to apply, using</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+<p>Post reboot, please validate the generated metrics on configured ports.</p>
+<ul class="simple">
+<li><p><em>IPMI-exporter</em>: Validate using <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-v</span> <span class="pre">localhost:9290/metrics</span></code> or any other assigned port</p></li>
+<li><p><em>DCGM-exporter</em>: Validate using <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-v</span> <span class="pre">localhost:9400/metrics</span></code> or any other assigned port</p></li>
+<li><p><em>smi-exporter</em>: Validate using <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-v</span> <span class="pre">localhost:9835/metrics</span></code> or any other assigned port</p></li>
+<li><p><em>node-exporter</em>: Validate using <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-v</span> <span class="pre">localhost:9100/metrics</span></code> or any other assigned port</p></li>
+<li><p><em>rapl-exporter</em>: Validate using <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-v</span> <span class="pre">localhost:8080/metrics</span></code> or any other assigned port</p></li>
+<li><p><em>process-exporter</em>: Validate using <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-v</span> <span class="pre">localhost:9256/metrics</span></code> or any other assigned port</p></li>
+</ul>
+</section>
+<section id="post-installation">
+<h2>Post Installation<a class="headerlink" href="#post-installation" title="Permalink to this heading">#</a></h2>
+<p>Trycarbonara provides managed monitoring service to help compute/visualize the energy and carbon vectors. Similar to OpenTelemetry, Trycarbonara’s monitoring service suports different approaches for providing a best and secure way into production:</p>
+<ul class="simple">
+<li><p>Pull-based approach</p>
+<ul>
+<li><p>This approach requires accessible endpoint to scrape the required metrics</p></li>
+<li><p>Our monitoring service uses SSL/TLS encryption for secure connection and data transfer</p></li>
+<li><p>In case of secure network, monitoring service endpoint (ingress) would need to be whitelisted</p></li>
+</ul>
+</li>
+<li><p>Push-based approach</p>
+<ul>
+<li><p>This approach leverages Grafana Agent (see <strong>Appendix</strong>) to scrape the metrics locally and push to our monitoring service</p></li>
+<li><p>Trycarbonara Client Agent uses TLS Certification and other forms of authentication/authorization for server validation</p></li>
+<li><p>In case of secure network, monitoring service endpoint (egress) would need to be whitelisted</p></li>
+</ul>
+</li>
+<li><p>Centralized Monitoring Approach</p>
+<ul>
+<li><p>Trycarbonara can be integrated with your existing centralized monitoring service, if any</p></li>
+<li><p>This approach leverages Trycarbonara Server Agent (installed only on the central monitor server) to publish raw metrics to Trycarbonara SaaS, receive the computed data and publish it back to your server</p></li>
+<li><p>Please reach out to us for more details</p></li>
+</ul>
+</li>
+<li><p>API based integration</p>
+<ul>
+<li><p>This approach would enable direct API usage for your use case</p></li>
+<li><p>Please reach out to us for more details</p></li>
+</ul>
+</li>
+</ul>
+<p>Once all the above ports are verified and the approach is identified, in case of a pull based approach, here is some information you need to provide to register your node with Trycarbonara service:</p>
+<ul class="simple">
+<li><p>Node IP Address. Publically accessible endpoint</p></li>
+<li><p>Architecture; eg: amd64</p></li>
+<li><p>Instance Type, if any; eg: medium.x86. or any other label/tag. You can leave it blank if no type defined</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Trycarbonara</span> <span class="pre">provides</span> <span class="pre">access</span> <span class="pre">to</span> <span class="pre">visualization,</span> <span class="pre">as</span> <span class="pre">separate</span> <span class="pre">user</span> <span class="pre">accounts,</span> <span class="pre">for</span> <span class="pre">every</span> <span class="pre">customer.</span></code></p>
+<p>Sample Dashboard:
+<img width="1680" alt="Kube Viz" src="_static/linux.png"></p>
+<p><strong>Please feel free to reach out to the team on hello&#64;trycarbonara.com or using other preferrable communication means for any support required in configuring and registering your node</strong></p>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">#</a></h2>
+<section id="install-grafana-agent-for-enabling-metrics-push">
+<h3>Install <em>Grafana Agent</em>, for enabling metrics push<a class="headerlink" href="#install-grafana-agent-for-enabling-metrics-push" title="Permalink to this heading">#</a></h3>
+<p>Grafana Agent collects and forwards telemetry data to open source deployments of the Grafana Stack, Grafana Cloud, or Grafana Enterprise, where your data can then be analyzed. You can install Grafana Agent on Kubernetes and Docker, or as a system process for Linux, macOS, and Windows machines.</p>
+<p>Grafana Agent is open source and its source code is available on GitHub at https://github.com/grafana/agent.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuring node_exporter to run using docker</span>
+<span class="c1">## 1. Copy and paste the following commands into your command line.</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/tmp/agent:/etc/agent/data<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--network<span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="w"> </span>--privileged<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--env<span class="w"> </span><span class="nv">INSTANCE</span><span class="o">=</span><span class="k">$(</span>hostname<span class="w">  </span>-I<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f1<span class="w"> </span>-d<span class="s1">&#39; &#39;</span><span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/path/to/config.yaml:/etc/agent/agent.yaml:ro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>grafana/agent:v0.32.1<span class="w"> </span>-config.expand-env<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-config.file<span class="w"> </span>/etc/agent/agent.yaml
+
+<span class="c1">## 2. Replace /tmp/agent with the folder you want to store WAL data in.</span>
+WAL<span class="w"> </span>data<span class="w"> </span>is<span class="w"> </span>where<span class="w"> </span>metrics<span class="w"> </span>are<span class="w"> </span>stored<span class="w"> </span>before<span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>sent<span class="w"> </span>to<span class="w"> </span>Prometheus.<span class="w"> </span>Old<span class="w"> </span>WAL<span class="w"> </span>data<span class="w"> </span>is<span class="w"> </span>cleaned<span class="w"> </span>up<span class="w"> </span>every<span class="w"> </span>hour<span class="w"> </span>and<span class="w"> </span>is<span class="w"> </span>used<span class="w"> </span><span class="k">for</span><span class="w"> </span>recovery<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>process<span class="w"> </span>happens<span class="w"> </span>to<span class="w"> </span>crash.
+
+<span class="c1">## 3. Replace /path/to/config.yaml with a path pointing to a valid configuration file.</span>
+Please<span class="w"> </span>use<span class="w"> </span>the<span class="w"> </span>shared<span class="w"> </span>agent<span class="w"> </span>config<span class="w"> </span>file:<span class="w"> </span>https://raw.githubusercontent.com/Trycarbonara/NodeInstallation/main/demo/agent-config.yaml,<span class="w"> </span><span class="nb">let</span><span class="w"> </span>us<span class="w"> </span>know<span class="w"> </span><span class="k">if</span><span class="w"> </span>there<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>conflict<span class="w"> </span>with<span class="w"> </span>any<span class="w"> </span>existing<span class="w"> </span>configuration<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>host.
+Modify<span class="w"> </span>the<span class="w"> </span>configuration,<span class="w"> </span>according<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>assigned<span class="w"> </span>ports<span class="w"> </span>and<span class="w"> </span>shared<span class="w"> </span>Trycarbonara<span class="w"> </span>monitoring<span class="w"> </span>server<span class="w"> </span>endpoint.
+Note<span class="w"> </span>that<span class="w"> </span>using<span class="w"> </span>paths<span class="w"> </span>on<span class="w"> </span>your<span class="w"> </span>host<span class="w"> </span>machine<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span>exposed<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Docker<span class="w"> </span>container<span class="w"> </span>through<span class="w"> </span>a<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mount<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>flags<span class="w"> </span>to<span class="w"> </span>work<span class="w"> </span>properly.
+
+<span class="c1">## 4. The remote endpoint/port along with the auth username and password must be applied to the above command as env variables:</span>
+--env<span class="w"> </span>AUTH-UNAME<span class="o">=</span>&lt;username&gt;<span class="w"> </span><span class="se">\</span>
+--env<span class="w"> </span>AUTH-PWD<span class="o">=</span>&lt;password&gt;<span class="w"> </span><span class="se">\</span>
+--env<span class="w"> </span>REMOTE-ENDPOINT<span class="o">=</span>&lt;trycarbonara-service-endpoint&gt;<span class="w"> </span><span class="se">\</span>
+--env<span class="w"> </span>REMOTE-PORT<span class="o">=</span>&lt;trycarbonara-service-port&gt;
+--env<span class="w"> </span><span class="nv">INSTANCE</span><span class="o">=</span>&lt;label-instance&gt;<span class="w"> </span><span class="c1"># curl -s ifconfig.me || hostname -I | cut -f1 -d&#39; &#39;</span>
+--env<span class="w"> </span><span class="nv">HOSTNAME</span><span class="o">=</span>&lt;label-hostname&gt;<span class="w"> </span><span class="c1"># hostname</span>
+--env<span class="w"> </span><span class="nv">IPMI_PORT</span><span class="o">=</span>&lt;assigned-ipmi-exporter-port&gt;
+--env<span class="w"> </span><span class="nv">NODE_PORT</span><span class="o">=</span>&lt;assigned-node-exporter-port&gt;
+--env<span class="w"> </span><span class="nv">DCGM_PORT</span><span class="o">=</span>&lt;assigned-dcgm-exporter-port&gt;<span class="w"> </span><span class="c1"># when using DCGM exporter</span>
+--env<span class="w"> </span><span class="nv">SMI_PORT</span><span class="o">=</span>&lt;assigned-smi-exporter-port&gt;<span class="w"> </span><span class="c1"># when using SMI exporter</span>
+
+For<span class="w"> </span>more<span class="w"> </span>details,<span class="w"> </span>please<span class="w"> </span>refer:<span class="w"> </span>https://grafana.com/docs/agent/latest/set-up/install-agent-docker/
+</pre></div>
+</div>
+<p>For installing grafana agent directly on your linux box, please refer: <a class="reference external" href="https://grafana.com/docs/agent/latest/set-up/install-agent-linux/">https://grafana.com/docs/agent/latest/set-up/install-agent-linux/</a>, <a class="reference external" href="https://grafana.com/docs/grafana-cloud/infrastructure-as-code/ansible/ansible-grafana-agent-linux/">https://grafana.com/docs/grafana-cloud/infrastructure-as-code/ansible/ansible-grafana-agent-linux/</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="methodology.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Methodology</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="kubernetes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installing Trycarbonara on Kubernetes Cluster</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-ipmi-exporter-tool-for-host-cpu-power-consumption-data"><strong>Step 1:</strong> Install <em>IPMI exporter tool</em>, for host <strong>CPU</strong> power consumption data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#and-or">and/or</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-dcgm-exporter-tool-for-host-gpu-nvidia-power-consumption-data"><strong>Step 1+:</strong> Install <em>DCGM exporter tool</em>, for host <strong>GPU (Nvidia)</strong> power consumption data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-nvidia-gpu-exporter-tool-for-host-gpu-nvidia-power-consumption-data"><strong>Step 1+:</strong> Install <em>NVIDIA GPU exporter tool</em>, for host <strong>GPU (Nvidia)</strong> power consumption data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-node-exporter-tool-for-host-resource-usage-data"><strong>Step 2:</strong> Install <em>node exporter tool</em>, for host resource usage data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-hubblo-scaphendre-tool-for-process-level-power-consumption-data-using-rapl-sensor"><strong>Step 3:</strong> Install <em>hubblo/scaphendre tool</em>, for process level power consumption data using RAPL sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-install-process-exporter-tool-for-process-level-resource-usage-data"><strong>Step 4:</strong> Install <em>process exporter tool</em>, for process level resource usage data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-validate-the-generated-metrics"><strong>Step 5:</strong> Validate the generated metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-installation">Post Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-grafana-agent-for-enabling-metrics-push">Install <em>Grafana Agent</em>, for enabling metrics push</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Karbonara Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Karbonara Inc..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

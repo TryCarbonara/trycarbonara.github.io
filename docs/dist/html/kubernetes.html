@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Installing Trycarbonara on Kubernetes Cluster &#8212; Trycarbonara  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kubernetes';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Supported APIs" href="api.html" />
+    <link rel="prev" title="Installing Trycarbonara on Linux Box" href="linux-machine.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-name.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo-name.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methodology.html">Methodology</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Baremetal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="linux-machine.html">Installing Trycarbonara on Linux Box</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cloud</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installing Trycarbonara on Kubernetes Cluster</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">On-Demand</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api.html">Supported APIs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="troubleshoot-kube.html">Troubleshooting - Kubernetes</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/kubernetes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Installing Trycarbonara on Kubernetes Cluster</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-trycarbonara-client"><strong>Step 1:</strong> <em>Install Trycarbonara Client</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-trycarbonara-agent"><strong>Step 2:</strong> <em>Install Trycarbonara Agent</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-launch-visualization"><strong>Step 3:</strong> <em>Launch Visualization</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-trycarbonara-insight"><strong>Step 4:</strong> <em>Trycarbonara Insight</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-trycarbonara-client">Updating Trycarbonara Client</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-trycarbonara-agent">Updating Trycarbonara Agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstalling-trycarbonara">Uninstalling Trycarbonara</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="installing-trycarbonara-on-kubernetes-cluster">
+<h1>Installing Trycarbonara on Kubernetes Cluster<a class="headerlink" href="#installing-trycarbonara-on-kubernetes-cluster" title="Permalink to this heading">#</a></h1>
+<p>Welcome! This guide will walk you through installing Trycarbonara into your cluster. Currently, Trycarbonara supports Kubernetes as the initial VM offering for some hyperscalers (aws, azure &amp; gcp). Trycarbonara leverages <code class="docutils literal notranslate"><span class="pre">kube-prometheus-stack</span></code> helm chart that includes all dependencies to get up and running and takes only a few minutes to install.</p>
+<p>Trycarbonara currently only supports AWS, GCP and Azure in US Regions. Support for EU coming soon! If you are running on-prem or colocation, we can accomodate your requests, please contact hello&#64;trycarbona.com</p>
+<p><strong>Note:</strong> Trycarbonara’s Methodology is loosely based on <a class="reference external" href="https://www.cloudcarbonfootprint.org/docs/methodology/">Methodology | Cloud Carbon Footprint</a></p>
+<section id="before-you-begin">
+<h2>Before you begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">#</a></h2>
+<p>In order to deploy the Trycarbonara helm chart, ensure the following is completed:</p>
+<ul class="simple">
+<li><p>Helm client (<a class="reference external" href="https://helm.sh/docs/intro/install/">version</a> 3.0+) installed</p></li>
+<li><p>Kubernetes client (<a class="reference external" href="https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html">version</a> 1.21+) installed</p></li>
+<li><p>Cluster created and configured with Kubernetes client</p></li>
+</ul>
+</section>
+<section id="step-1-install-trycarbonara-client">
+<h2><strong>Step 1:</strong> <em>Install Trycarbonara Client</em><a class="headerlink" href="#step-1-install-trycarbonara-client" title="Permalink to this heading">#</a></h2>
+<p>Trycarbonara client requires Python (<a class="reference external" href="https://www.python.org/downloads/">version</a> 3.7+) to run. We recommend using a virtual python <a class="reference external" href="https://docs.python.org/3/library/venv.html">environment</a> for using the tool for the best performance. The client is available on PyPi.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>❯<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>cbrctl
+</pre></div>
+</div>
+</section>
+<section id="step-2-install-trycarbonara-agent">
+<h2><strong>Step 2:</strong> <em>Install Trycarbonara Agent</em><a class="headerlink" href="#step-2-install-trycarbonara-agent" title="Permalink to this heading">#</a></h2>
+<p>Configures your cluster with Trycarbonara agent. Running the following commands will also install Prometheus, Grafana, and kube-state-metrics in the namespace supplied. View install configuration options <a class="reference external" href="https://github.com/Trycarbonara/CarbonaraResources">here</a>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize Trycarbonara context</span>
+❯<span class="w"> </span>cbrctl<span class="w"> </span>init<span class="w"> </span>--provider<span class="w"> </span>aws
+Context<span class="w"> </span>Initialized.
+
+<span class="c1"># Trycarbonara Context is persisted at &quot;~/.kube/carbonara_config&quot; locally</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate Trycarbonara auth token</span>
+❯<span class="w"> </span>cbrctl<span class="w"> </span>auth
+Please<span class="w"> </span>enter<span class="w"> </span>a<span class="w"> </span>valid<span class="w"> </span>name:<span class="w"> </span>&lt;USER_NAME&gt;
+Please<span class="w"> </span>enter<span class="w"> </span>a<span class="w"> </span>valid<span class="w"> </span>email:<span class="w"> </span>&lt;USER_EMAIL&gt;
+
+Please<span class="w"> </span>persist<span class="w"> </span>your<span class="w"> </span>auth<span class="w"> </span>token:<span class="w"> </span>&lt;GENERATED_256_BIT_TOKEN&gt;
+Context<span class="w"> </span>Updated.
+
+<span class="c1"># Trycarbonara Token is also persisted at &quot;~/.kube/carbonara_config&quot; locally</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configure target cluster with Trycarbonara packages</span>
+❯<span class="w"> </span>cbrctl<span class="w"> </span>config
+Enter<span class="w"> </span>target<span class="w"> </span>cluster:<span class="w"> </span>&lt;CLUSTER_NAME&gt;
+
+Cluster<span class="w"> </span>Configured<span class="w"> </span>Successfully.<span class="w"> </span>Happy<span class="w"> </span>Carbonara<span class="w"> </span><span class="se">\m</span>/
+
+<span class="c1"># By default, the token is fetched from the Trycarbonara config file. Otherwise it can also be passed using the `--token` flag.</span>
+<span class="c1"># Current cluster name is picked up from kubectl current context.</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: Currently Trycarbonara tooling supports monitoring all user’s cluster with an exception of <code class="docutils literal notranslate"><span class="pre">carbonara-monitoring</span></code> and some system level <code class="docutils literal notranslate"><span class="pre">kube-*.</span></code> namespaces. We will soon be supporting dynamic lisitng of these namespaces to monitor.</p>
+</div></blockquote>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Validate status and make sure all pods are running</span>
+❯<span class="w"> </span>cbrctl<span class="w"> </span>status
+</pre></div>
+</div>
+<p>In case, any pod is not running, please refer to these <a class="reference internal" href="troubleshoot-kube.html"><span class="std std-doc">Troubleshooting</span></a> steps.</p>
+</section>
+<section id="step-3-launch-visualization">
+<h2><strong>Step 3:</strong> <em>Launch Visualization</em><a class="headerlink" href="#step-3-launch-visualization" title="Permalink to this heading">#</a></h2>
+<p>The client exposes Grafana to external IP using Load-Balancer. The launcher will use the default browser to open the dashboard link. Secured Grafana uses username as <code class="docutils literal notranslate"><span class="pre">admin</span></code> and password as <code class="docutils literal notranslate"><span class="pre">prom-operator</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expose Grafana dashboard and launch it</span>
+❯<span class="w"> </span>cbrctl<span class="w"> </span>show
+</pre></div>
+</div>
+<p>Sample Dashboard:
+<img width="1680" alt="Kube Viz" src="_static/kube.png"></p>
+</section>
+<section id="step-4-trycarbonara-insight">
+<h2><strong>Step 4:</strong> <em>Trycarbonara Insight</em><a class="headerlink" href="#step-4-trycarbonara-insight" title="Permalink to this heading">#</a></h2>
+<p>Explore the dashboard for viewing your Carbon Emission score for all your running workloads.</p>
+<section id="updating-trycarbonara-client">
+<h3>Updating Trycarbonara Client<a class="headerlink" href="#updating-trycarbonara-client" title="Permalink to this heading">#</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Installs new version from pypi</span>
+❯<span class="w"> </span>pip<span class="w"> </span>upgrade<span class="w"> </span>cbrctl
+</pre></div>
+</div>
+</section>
+<section id="updating-trycarbonara-agent">
+<h3>Updating Trycarbonara Agent<a class="headerlink" href="#updating-trycarbonara-agent" title="Permalink to this heading">#</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Coming soon ...</span>
+</pre></div>
+</div>
+</section>
+<section id="uninstalling-trycarbonara">
+<h3>Uninstalling Trycarbonara<a class="headerlink" href="#uninstalling-trycarbonara" title="Permalink to this heading">#</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uninstalls resources configured by Trycarbonara</span>
+❯<span class="w"> </span>cbrctl<span class="w"> </span>eject
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uninstalls Trycarbonara Client</span>
+❯<span class="w"> </span>pip<span class="w"> </span>uninstall<span class="w"> </span>-y<span class="w"> </span>cbrctl
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="linux-machine.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Installing Trycarbonara on Linux Box</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Supported APIs</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-trycarbonara-client"><strong>Step 1:</strong> <em>Install Trycarbonara Client</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-trycarbonara-agent"><strong>Step 2:</strong> <em>Install Trycarbonara Agent</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-launch-visualization"><strong>Step 3:</strong> <em>Launch Visualization</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-trycarbonara-insight"><strong>Step 4:</strong> <em>Trycarbonara Insight</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-trycarbonara-client">Updating Trycarbonara Client</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-trycarbonara-agent">Updating Trycarbonara Agent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstalling-trycarbonara">Uninstalling Trycarbonara</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Karbonara Inc.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Karbonara Inc..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
