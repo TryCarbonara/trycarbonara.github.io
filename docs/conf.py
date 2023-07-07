@@ -42,8 +42,8 @@ source_suffix = {
 
 html_static_path = ['_static']
 # html_theme = 'alabaster'
-# html_theme = 'sphinx_rtd_theme'
-html_theme = 'sphinx_book_theme'
+html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_book_theme'
 html_logo = "_static/logo-name.png"
 
 # If true, links to the reST sources are added to the pages.
