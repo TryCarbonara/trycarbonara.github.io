@@ -22,7 +22,7 @@ For the estimation of Compute & Memory in servers, we leverage hardware sensors 
 
 #### Storage Energy Estimation
 
-For estimating the energy usage associated with storage, we adopt the methodology suggested by the [Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/)project. This methodology involves deriving a coefficient for energy usage (in Watt-hours) per Terabyte of storage, both for Hard Disk Drives (HDDs) and Solid State Drives (SSDs).
+For estimating the energy usage associated with storage, we adopt the methodology suggested by the [Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/) project. This methodology involves deriving a coefficient for energy usage (in Watt-hours) per Terabyte of storage, both for Hard Disk Drives (HDDs) and Solid State Drives (SSDs).
 
 HDD Energy Usage Estimation:
 
@@ -106,6 +106,41 @@ Hourly Embodied Emissions Constant = (1.466/17520) tons/hours
 ```
 
 Please note that this is an example calculation and the specifics will vary depending on the server model used and the results from its Life Cycle Assessment.
+
+## Estimating Energy Use of Cloud Services
+
+Trycarbonara is designed to take advantage of any hardware sensors available to provide accurate energy use. However, the hyperscalers block access to sensors so no one has the direct data from the chip except for the hyperscalers themselves. That being said, the technology is quite robust at inferring the power draw as the industry around this has established well tested models. Trycarbonara's product uses a combination of these methods to produce granular data for public cloud instances.  
+
+### Estimating the energy use of AWS Services
+
+#### AWS EC2
+
+The energy use of a Virtual Machine is derived as a combination of two factors, namely, the actual utilization of CPU attributed to the VM and the energy used by the underlying CPU. Today, we use real-time CPU utilization metrics such as Cloudwatch metrics or OpenTelemetry to gather utilization rates. This gives us a much better picture as opposed to assuming a utilization rate such as 50% which is often the case when using CUR reports. We are also investigating more advanced techniques like eBPF as part of our roadmap to more accurately attribute the CPU usage of a VM.
+
+For estimating the energy use of the underlying CPU, today we rely on the [Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/) project for gathering the cloud factors. However, in the background Trycarbonara is creating data pipelines that will run real-time studies of the underlying metal instance and continuously update the cloud factors with more accurate values. (To be launched in 2024)
+
+We continue to monitor other metrics such as total vCPUs, networking activity, storage and memory use to create an accurate picture of the total energy use of an EC2. 
+
+#### AWS RDS 
+
+Similar to EC2, we use a combination of real-time utilization metrics, coupled with cloud factors to derive the energy use for RDS. We continue to monitor other metrics such as total vCPUs, networking activity, storage and memory use to create an accurate picture of the total energy use of an RDS instance. 
+
+#### AWS S3
+
+For S3, we only consider storage which is fetched from *BucketSizeBytes* of Cloud Watch metrics. There is no customization required, however bucket size is the only metric used. With regards to the compute and networking needs for storage, Trycarbonara assumes the CPU responsible for doing the I/O will be accounted for as part of the Compute bucket, and networking will be accounted for through the network metrics. We also consider the replication factor for S3 buckets, gathered directly from the bucket properties.
+
+#### AWS Lambda
+
+Lambda, a serverless service, offers limited visibility into its operations. In order to access detailed usage metrics, we enable Lambda Insights for the desired functions. This feature adds a custom namespace in Cloud Watch metrics, detailing:
+
+```
+CPU total time (in seconds)
+Real-time memory utilization (as a percentage)
+Network usage (in bytes)
+```
+
+While the specific instance class is not visible, we can infer the vCPU based on memory usage. Lambdas can use memory ranging from 128MB to 10,240MB, increasing in 1MB steps ([Reference](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)). At 1,792MB, a lambda function is allocated one vCPU([Reference](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html)). Beyond this, additional vCPUs are granted, up to a maximum of 6 vCPUs. The vCPU count for a lambda function can be estimated by dividing its allocated memory by 1,792MB. 
+
 
 ## Appendix
 
