@@ -105,6 +105,7 @@ components:
           type: string
           nullable: false
           example: aws
+          required: true
           description: Supported Types - aws; coming up - azure, gcp
           enum:
             - aws
@@ -114,11 +115,13 @@ components:
           type: string
           nullable: false
           example: us-east-2
+          required: true
           description: Respective Cloud Provider supported Regions
         serviceType:
           type: string
           nullable: false
           example: ec2
+          required: true
           description: Respective Cloud Provider supported Service
         instanceType:
           type: string
@@ -148,6 +151,7 @@ components:
           format: float
           nullable: false
           example: 300
+          required: true
         pue:
           type: number
           description: power usage effectiveness coefficient. Defaults to industry (cloud-provider) standards, if not provided.
@@ -160,6 +164,7 @@ components:
             $ref: '#/components/schemas/CarbonInfrastructureInputsInputDTO'
           description: "Usage input data-point records"
           nullable: false
+          required: true
       additionalProperties: false
     CarbonInfrastructureOutputDTO:
       type: object
@@ -209,6 +214,7 @@ components:
           nullable: false
           example: 2022-03-10 18:00:00-08:00
           description: Timestamp in ISO Format + Offset
+          required: true
         computeUtilization:
           type: number
           nullable: true
